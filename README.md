@@ -12,6 +12,10 @@ Institutional-grade pre-token launch radar modeling implied fully diluted valuat
   <img src="assets/product-demo.svg" alt="Token Launch Radar Terminal Demo" width="100%" />
 </p>
 
+<p align="center">
+  <img src="assets/demo-walkthrough.gif" alt="Live Terminal Animated Demo Walkthrough" width="100%" />
+</p>
+
 ---
 
 ## Executive Overview
@@ -32,6 +36,21 @@ Traditional airdrop farming relies on social media rumors, high gas waste, and u
 | **Data Confidence** | Speculative social rumors | Linear regressions across 758 verified on-chain peer protocols |
 | **Execution Latency** | Hours searching Discord and documentation | Sub-10ms instant multi-tag filtering by chain, sector, and TVL tier |
 | **Capital Efficiency** | High gas expenditure with locked liquidity | Exact step-by-step capital recipes detailing minimum deposit and duration |
+
+---
+
+## Top Pre-Token Opportunities (Snapshot Intelligence)
+
+Empirical ranking of leading pre-token protocols derived from the snapshot:
+
+| Rank | Protocol | Category / Sector | Primary Chains | TVL ($USD) | 7-Day Change | Implied Value | Value / TVL |
+| :---: | :--- | :--- | :--- | :---: | :---: | :---: | :---: |
+| **1** | **Steakhouse Financial** | Risk Curators / Curators | Base, Ethereum | $2.75B | -2.2% | **$313.5M** | 0.11x |
+| **2** | **Gauntlet** | Risk Curators / Curators | Base, Binance | $1.58B | +5.6% | **$183.8M** | 0.12x |
+| **3** | **Veda** | Capital Allocator / Curators | Ink, Ethereum | $1.56B | -8.3% | **$179.8M** | 0.12x |
+| **4** | **USDD** | CDP / Lending | Tron, Ethereum | $1.06B | -2.8% | **$163.0M** | 0.15x |
+| **5** | **Hive Protocol** | Native Layer 1 / Chain | BSquared | $198.8M | -10.2% | **$110.2M** | 0.55x |
+| **6** | **OnRe** | Real World Assets / RWA | Solana | $308.8M | +0.1% | **$64.2M** | 0.21x |
 
 ---
 
@@ -60,7 +79,7 @@ Traditional airdrop farming relies on social media rumors, high gas waste, and u
 </table>
 
 ### Core Navigation Capabilities
-- **Multi-Vector Filtering**: Filter by category (`DEXes`, `Lending`, `Rollup`, `Restaking`, `Yield`), native chain, and TVL capital tiers.
+- **Multi-Vector Filtering**: Filter by category (`Curators`, `Lending`, `Chain`, `RWA`, `Derivatives`, `Dexs`), native chain, and TVL capital tiers.
 - **Deep Audit Drawer**: Select any protocol row to inspect underlying metrics, sector multiples, and step-by-step farming instructions.
 - **Adaptive Appearance**: Instant switching between dark and light themes with zero unstyled content flash.
 
@@ -70,20 +89,21 @@ Traditional airdrop farming relies on social media rumors, high gas waste, and u
 
 The valuation engine scores every protocol using fundamental on-chain protocol metrics:
 
-$$\text{Implied FDV} = \text{TVL} \times M_{\text{sector}} \times (1 + \text{Velocity}_{7\text{d}} \times W_{\text{growth}}) \times \left(0.6 + \frac{\min(\text{Age}_{\text{days}}, 1095)}{1095} \times 0.4\right)$$
+$$\text{Implied FDV} = \text{TVL} \times M_{\text{sector}} \times (1 + \text{Velocity}_{7\text{d}} \times W_{\text{growth}}) \times \left(0.55 + \frac{\min(\text{Age}_{\text{days}}, 500)}{500} \times 0.45\right)$$
 
 ### 1. Dynamic Sector Multiples ($M_{\text{sector}}$)
-Calibrated from active tokens trading in the corresponding category:
-- **DEXes / AMMs**: Calibrated to trading volume velocity and liquidity turnover.
-- **Lending & CDPs**: Scaled to credit utilization and collateral stability.
-- **Rollups & Layer 2s**: Premium valuation multiple reflecting sequencer revenue and ecosystem capture.
-- **Restaking & Liquid Vaults**: Capital efficiency multiplier anchored to yield spreads.
+Calibrated directly from active tokens trading in the corresponding category:
+- **Curators & Allocators**: $0.135x$ empirical multiplier reflecting yield management fees.
+- **Lending & CDPs**: $0.179x$ calibrated to collateral velocity and interest margins.
+- **Layer 1 Chains & Rollups**: $0.616x$ capturing sequencer economics and native gas settlement.
+- **Real World Assets (RWA)**: $0.250x$ grounded in stable tokenized yield distribution.
+- **Derivatives & Perps**: $0.741x$ driven by trading volume turnover and fee accrual.
 
 ### 2. Velocity Dampener ($\text{Velocity}_{7\text{d}}$)
-7-day TVL change is clamped to $[-60\%, +120\%]$ with sub-linear dampening ($W_{\text{growth}} = 0.5$) to filter temporary wash-trading spikes.
+7-day TVL change is clamped to $[-40\%, +80\%]$ with sub-linear dampening ($W_{\text{growth}} = 0.3$) to filter temporary wash-trading spikes.
 
 ### 3. Lindy Maturity Curve
-Asymptotic scaling that attributes maximum resilience to protocols active for $\ge 1,095$ days (3 years), mitigating risks from short-lived projects.
+Asymptotic scaling that attributes maximum resilience to protocols active for $\ge 500$ days, mitigating risks from short-lived projects.
 
 ---
 
@@ -91,11 +111,12 @@ Asymptotic scaling that attributes maximum resilience to protocols active for $\
 
 | Category | Protocols Tracked | Median Sector Multiple | Leading Pre-Token Protocol | Primary Capital Strategy |
 | :--- | :---: | :---: | :--- | :--- |
-| **DEXes** | 48 | $0.245x$ | Aerodrome Ecosystem | Concentrated liquidity provision & swap routing |
-| **Lending / CDPs** | 36 | $0.198x$ | Morpho Labs Pre-Token Pools | Supplying stable assets as collateral with conservative LTV |
-| **Rollup / L2** | 22 | $1.420x$ | Linea / Scroll Network | Bridge transaction volume, contract deployment, sequencer gas |
-| **Restaking** | 18 | $0.380x$ | Symbiotic Network | Delegating LST/LRT assets into validated operator vaults |
-| **Yield / Derivatives** | 32 | $0.215x$ | Hyperliquid Pre-Token Pairs | Maker volume provision and delta-neutral funding farming |
+| **Curators** | 18 | $0.135x$ | Steakhouse Financial | Vault liquidity allocation & risk curation delegation |
+| **Lending / CDPs** | 36 | $0.179x$ | USDD Protocol | Supplying stable assets as collateral with conservative LTV |
+| **Chain / Layer 1** | 12 | $0.616x$ | Hive Protocol | Staking native consensus collateral and validator participation |
+| **RWA** | 16 | $0.250x$ | OnRe Network | Real-world asset vault subscriptions and tokenized debt holding |
+| **Derivatives** | 24 | $0.741x$ | Hyperliquid Pairs | Maker volume provision and delta-neutral funding farming |
+| **Dexs / AMMs** | 48 | $0.287x$ | Aerodrome Alpha | Concentrated liquidity provision & swap routing |
 
 ---
 
