@@ -11,6 +11,7 @@
 // The run is deterministic: the same snapshot produces the same bytes, which is what the second
 // run of the grade compares.
 
+import { createHash } from 'node:crypto';
 import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -41,8 +42,11 @@ if (!existsSync(inputFile)) {
 }
 const out = arg('output', process.env.MAKEFUN_OUTPUT_DIR ?? '/output');
 
-const snapshot = parseSnapshot(readFileSync(inputFile, 'utf8'));
+const snapshotText = readFileSync(inputFile, 'utf8');
+const snapshot = parseSnapshot(snapshotText);
 const { board, radar } = buildRadar(snapshot);
+// The page quotes the snapshot's own hash, so a reader can tell the board came from these bytes.
+radar.feed = { sha256: createHash('sha256').update(snapshotText).digest('hex'), bytes: Buffer.byteLength(snapshotText) };
 const issue = boardIssue(board, snapshot);
 if (issue !== null) {
   process.stderr.write(`token radar: the model wrote a board the gate refuses: ${issue}\n`);

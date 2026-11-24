@@ -158,6 +158,7 @@ export interface RadarData {
   source: string;
   floor_usd: number;
   model_version: string;
+  feed?: { sha256: string; bytes: number };
   model: ModelConfig;
   sector_stats: SectorStat[];
   market_median: number;
